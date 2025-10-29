@@ -25,31 +25,35 @@
     h1 {
       margin-top: 20px;
       font-size: 4em;
-      color: red;
+      color: #ff3333;
       font-weight: bold;
+      text-shadow: 3px 3px 0px yellow;
     }
 
     p {
-      font-size: 2.4em;
-      color: blue;
+      font-size: 2.2em;
+      color: #0077ff;
       font-weight: bold;
       margin: 30px;
     }
 
+    /* Fun Button */
     button {
       font-family: 'Happy Monkey', sans-serif;
-      font-size: 1.5em;
-      background-color: red;
-      color: white;
+      font-size: 1.8em;
+      background-color: #FFD600;
+      color: #D61C4E;
       border: none;
-      padding: 15px 40px;
-      border-radius: 20px;
+      padding: 15px 45px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     button:hover {
-      background-color: darkred;
+      background-color: #FFEC80;
+      transform: rotate(-3deg) scale(1.05);
     }
 
     /* Popup Form Styles */
@@ -58,29 +62,51 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      border: 3px solid red;
-      border-radius: 20px;
+      transform: translate(-50%, -50%) scale(0.8);
+      background-color: #fffbea;
+      border: 4px solid #FFD600;
+      border-radius: 25px;
       z-index: 9;
-      padding: 20px;
+      padding: 25px;
       width: 80%;
       max-width: 400px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: popIn 0.3s ease forwards;
+    }
+
+    @keyframes popIn {
+      from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+      to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+
+    .form-popup h2 {
+      color: #D61C4E;
+      font-size: 2em;
+      margin-bottom: 10px;
     }
 
     .form-popup input, .form-popup textarea {
       width: 90%;
       padding: 10px;
       margin: 10px 0;
-      border: 2px solid #ccc;
+      border: 2px solid #FFD600;
       border-radius: 10px;
       font-size: 1em;
+      font-family: 'Happy Monkey', sans-serif;
     }
 
     .form-popup button {
+      background-color: #D61C4E;
+      color: white;
+      font-size: 1.2em;
+      border-radius: 15px;
       margin-top: 10px;
-      background-color: blue;
+      padding: 10px 25px;
+      transition: transform 0.2s ease;
+    }
+
+    .form-popup button:hover {
+      transform: scale(1.1);
     }
 
     .close-btn {
@@ -91,12 +117,12 @@
 </head>
 <body>
   <img src="logo.png" alt="Monkey Mechanics student repair service logo">
-  <h1>Welcome to Monkey Mechanics!</h1>
+  <h1>Welcome to Monkey Mechanics! 🍌</h1>
   <p>Hello Monkeys! Monkey Mechanics is an ISK student-led repair service. We fix toys, gadgets, and even do some woodworking! 
      You can get your items repaired for free — almost. We accept payment in the form of whatever you have! 
      Popular choices include candy, stationery, and other small items (but no food, please).</p>
 
-  <button onclick="openForm()">Request a Repair</button>
+  <button onclick="openForm()">🐒 Request a Repair!</button>
 
   <div class="form-popup" id="repairForm">
     <h2>Repair Request Form</h2>
@@ -104,14 +130,16 @@
       <input type="text" placeholder="Your Name" required><br>
       <input type="email" placeholder="Your Email" required><br>
       <textarea rows="4" placeholder="Describe the item and issue..." required></textarea><br>
-      <button type="submit">Submit</button>
+      <button type="submit">Send Request 🍌</button>
       <button type="button" class="close-btn" onclick="closeForm()">Close</button>
     </form>
   </div>
 
   <script>
     function openForm() {
-      document.getElementById("repairForm").style.display = "block";
+      const form = document.getElementById("repairForm");
+      form.style.display = "block";
+      form.style.animation = "popIn 0.3s ease forwards";
     }
 
     function closeForm() {
