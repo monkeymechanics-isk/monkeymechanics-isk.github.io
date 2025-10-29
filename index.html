@@ -6,38 +6,117 @@
   <title>Monkey Mechanics</title>
   <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap" rel="stylesheet">
 
-
- <style>
+  <style>
     body {
       margin: 0;
       padding: 0;
       background-color: #f5fff5;
-      font-family: 'Happy Monkey' , san-serif;
+      font-family: 'Happy Monkey', sans-serif;
       text-align: center;
     }
+
     img {
       width: 100%;
       height: 85vh;
       object-fit: cover;
       display: block;
     }
+
     h1 {
       margin-top: 20px;
-      font-size: 4em; /* large red header */
+      font-size: 4em;
       color: red;
       font-weight: bold;
     }
+
     p {
-      font-size: 2.4em; /* bigger paragraph */
+      font-size: 2.4em;
       color: blue;
       font-weight: bold;
       margin: 30px;
     }
+
+    button {
+      font-family: 'Happy Monkey', sans-serif;
+      font-size: 1.5em;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: darkred;
+    }
+
+    /* Popup Form Styles */
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 3px solid red;
+      border-radius: 20px;
+      z-index: 9;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .form-popup input, .form-popup textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 1em;
+    }
+
+    .form-popup button {
+      margin-top: 10px;
+      background-color: blue;
+    }
+
+    .close-btn {
+      background-color: gray;
+      margin-left: 10px;
+    }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Monkey Mechanics Logo">
+  <img src="logo.png" alt="Monkey Mechanics student repair service logo">
   <h1>Welcome to Monkey Mechanics!</h1>
-  <p>Hello Monkeys! Monkey Mechanics is an ISK student led reapir service. We reapir toys and more! Things like clocks, IT help, and even woodworking! You can repair your items for free, almost. We take payment in the form of whatever you have! Some popular methods are candy, stationary, and more, no food.</p>
+  <p>Hello Monkeys! Monkey Mechanics is an ISK student-led repair service. We fix toys, gadgets, and even do some woodworking! 
+     You can get your items repaired for free — almost. We accept payment in the form of whatever you have! 
+     Popular choices include candy, stationery, and other small items (but no food, please).</p>
+
+  <button onclick="openForm()">Request a Repair</button>
+
+  <div class="form-popup" id="repairForm">
+    <h2>Repair Request Form</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="email" placeholder="Your Email" required><br>
+      <textarea rows="4" placeholder="Describe the item and issue..." required></textarea><br>
+      <button type="submit">Submit</button>
+      <button type="button" class="close-btn" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+
+  <script>
+    function openForm() {
+      document.getElementById("repairForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("repairForm").style.display = "none";
+    }
+  </script>
 </body>
 </html>
