@@ -111,6 +111,14 @@
       background-color: gray;
       margin-left: 10px;
     }
+
+    /* Success message */
+    .success-message {
+      color: green;
+      font-size: 1.4em;
+      margin-top: 10px;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -124,8 +132,9 @@
 
   <div class="form-popup" id="repairForm">
     <h2>Repair Request Form</h2>
-    <form action="https://api.web3forms.com/submit" method="POST">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="25475670-0efd-4b28-8fea-bb6e0c880aa7">
+      <input type="hidden" name="recipient" value="monkeymechanicsmain@gmail.com">
       <input type="hidden" name="from_name" value="Monkey Mechanics Website">
       <input type="hidden" name="subject" value="New Repair Request!">
 
@@ -136,13 +145,39 @@
       <button type="submit">Send Request 🍌</button>
       <button type="button" class="close-btn" onclick="closeForm()">Close</button>
     </form>
+    <div class="success-message" id="successMsg">✅ Thanks! We got your repair request!</div>
   </div>
 
   <script>
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData
+      });
+
+      if (response.ok) {
+        form.reset(); // clear the form
+        successMsg.style.display = "block"; // show success message
+
+        setTimeout(() => {
+          successMsg.style.display = "none";
+          closeForm(); // close popup
+        }, 2500); // hide after 2.5s
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    });
+
     function openForm() {
-      const form = document.getElementById("repairForm");
-      form.style.display = "block";
-      form.style.animation = "popIn 0.3s ease forwards";
+      const formPopup = document.getElementById("repairForm");
+      formPopup.style.display = "block";
+      formPopup.style.animation = "popIn 0.3s ease forwards";
     }
 
     function closeForm() {
