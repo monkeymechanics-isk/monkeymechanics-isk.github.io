@@ -37,7 +37,6 @@
       margin: 30px;
     }
 
-    /* Fun Button */
     button {
       font-family: 'Happy Monkey', sans-serif;
       font-size: 1.8em;
@@ -56,7 +55,6 @@
       transform: rotate(-3deg) scale(1.05);
     }
 
-    /* Popup Form Styles */
     .form-popup {
       display: none;
       position: fixed;
@@ -126,10 +124,15 @@
 
   <div class="form-popup" id="repairForm">
     <h2>Repair Request Form</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required><br>
-      <input type="email" placeholder="Your Email" required><br>
-      <textarea rows="4" placeholder="Describe the item and issue..." required></textarea><br>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="25475670-0efd-4b28-8fea-bb6e0c880aa7">
+      <input type="hidden" name="from_name" value="Monkey Mechanics Website">
+      <input type="hidden" name="subject" value="New Repair Request!">
+
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="email" name="email" placeholder="Your Email" required><br>
+      <textarea name="message" rows="4" placeholder="Describe the item and issue..." required></textarea><br>
+
       <button type="submit">Send Request 🍌</button>
       <button type="button" class="close-btn" onclick="closeForm()">Close</button>
     </form>
