@@ -1,38 +1,20 @@
-// SCRIPT.JS — handles mobile menu + popup form
-
-// ===== MOBILE NAVIGATION =====
+// MOBILE MENU
 const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
+const navLinks = document.querySelector("nav ul");
 
-if (menuBtn) {
-  menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
-}
-
-// ===== CLOSE MENU WHEN LINK CLICKED (MOBILE) =====
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-  });
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
 });
 
+// POPUP FORM
+const popup = document.getElementById("popupForm");
+const openBtn = document.getElementById("openFormBtn");
+const closeBtn = document.getElementById("closeBtn");
 
-// ===== FORM POPUP (Only exists on index.html, so safe to check) =====
-function openForm() {
-  const formPopup = document.getElementById("repairForm");
-  if (formPopup) {
-    formPopup.style.display = "block";
-    formPopup.style.animation = "popIn 0.3s ease forwards";
-  }
+if (openBtn) {
+  openBtn.addEventListener("click", () => popup.style.display = "block");
 }
 
-function closeForm() {
-  const formPopup = document.getElementById("repairForm");
-  if (formPopup) {
-    formPopup.style.display = "none";
-  }
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => popup.style.display = "none");
 }
-
-window.openForm = openForm;
-window.closeForm = closeForm;
