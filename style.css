@@ -146,3 +146,124 @@ button:hover {
   display: none;
 }
 
+/* ===== HEADER / NAVIGATION (NEW GLOBAL) ===== */
+header {
+  width: 100%;
+  background: #FFD600;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #D61C4E;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #D61C4E;
+  transition: 0.2s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #0077ff;
+  transform: scale(1.1);
+}
+
+/* MOBILE MENU BUTTON */
+.menu-btn {
+  display: none;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+/* === MOBILE NAVIGATION === */
+@media (max-width: 700px) {
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    flex-direction: column;
+    background: #FFD600;
+    height: 100vh;
+    width: 60%;
+    padding-top: 100px;
+    transition: 0.3s ease;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* ===== STAFF PAGE CARDS ===== */
+.page-header h1 {
+  font-size: 3.5em;
+  color: #ff3333;
+  margin-top: 25px;
+  text-shadow: 3px 3px 0px yellow;
+}
+
+.staff-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  padding: 40px 20px;
+}
+
+.staff-card {
+  background: white;
+  width: 240px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: 0.25s ease;
+}
+
+.staff-card:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.staff-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.staff-card h2 {
+  font-size: 1.4em;
+  color: #D61C4E;
+  margin: 10px 0 5px;
+}
+
+.staff-card p {
+  font-size: 1.2em;
+  color: #0077ff;
+  margin: 0;
+}
+
+
