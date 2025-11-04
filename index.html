@@ -15,6 +15,65 @@
       text-align: center;
     }
 
+    /* NAVBAR (added) */
+    header {
+      width: 100%;
+      background: #FFD600;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #D61C4E;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 1.05em;
+      font-weight: 800;
+      color: #D61C4E;
+      transition: 0.15s ease;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #0077ff;
+      transform: scale(1.06) rotate(-2deg);
+    }
+    .menu-btn {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    @media (max-width:700px) {
+      .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        flex-direction: column;
+        background: #FFD600;
+        height: 100vh;
+        width: 60%;
+        padding-top: 100px;
+        transition: 0.3s ease;
+      }
+      .nav-links.open { right: 0; }
+      .menu-btn { display: block; }
+    }
+
     img {
       width: 100%;
       height: 85vh;
@@ -122,6 +181,17 @@
   </style>
 </head>
 <body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">🐒 Monkey Mechanics</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active">HOME</a>
+      <a href="staff.html">STAFF</a>
+    </nav>
+    <div class="menu-btn" id="menuBtn">☰</div>
+  </header>
+
   <img src="logo.png" alt="Monkey Mechanics student repair service logo">
   <h1>Welcome to Monkey Mechanics! 🍌</h1>
   <p>Hello Monkeys! Monkey Mechanics is an ISK student-led repair service. We fix toys, gadgets, and even do some woodworking! 
@@ -149,6 +219,23 @@
   </div>
 
   <script>
+    // MOBILE MENU
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuBtn) {
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // FORM SUBMISSION (keeps your original Web3Forms behavior)
     const form = document.getElementById("contactForm");
     const successMsg = document.getElementById("successMsg");
 
