@@ -1,81 +1,105 @@
-/* GLOBAL STYLES */
-body {
+/* IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+
+/* GLOBAL */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #f5fff5;
-  font-family: 'Happy Monkey', sans-serif;
+}
+
+body {
+  background: #f5fff5;
+  font-family: 'Happy Monkey', cursive;
   text-align: center;
 }
 
 /* NAVBAR */
-.navbar {
-  background-color: #FFD600;
+header {
+  background: #FFD600;
   padding: 15px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-.navbar nav {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   display: flex;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
 }
 
-.navbar a {
-  font-size: 1.6em;
+.logo {
+  font-size: 2em;
+  font-weight: bold;
   color: #D61C4E;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
   text-decoration: none;
+  font-size: 1.4em;
+  color: #D61C4E;
   font-weight: bold;
   transition: 0.2s ease;
 }
 
-.navbar a:hover {
+nav a:hover,
+nav a.active {
   transform: scale(1.1) rotate(-3deg);
   color: #0077ff;
 }
 
+/* MOBILE MENU */
+.menu-btn {
+  font-size: 2em;
+  cursor: pointer;
+  display: none;
+}
+
 /* HERO IMAGE */
-.hero-img {
+.hero {
   width: 100%;
-  height: 85vh;
-  object-fit: cover;
-  display: block;
+  height: 75vh;
+  background: url("https://i.imgur.com/vIfKT0W.png") center/cover no-repeat;
 }
 
 /* MAIN TEXT */
-h1 {
-  margin-top: 20px;
+main h1 {
   font-size: 4em;
+  margin-top: 25px;
   color: #ff3333;
-  font-weight: bold;
-  text-shadow: 3px 3px 0px yellow;
+  text-shadow: 3px 3px yellow;
 }
 
-p {
-  font-size: 2.2em;
+main p {
+  font-size: 2em;
   color: #0077ff;
   font-weight: bold;
-  margin: 30px;
+  margin: 25px auto;
+  max-width: 900px;
 }
 
-/* BUTTONS */
+/* BUTTON */
 button {
-  font-family: 'Happy Monkey', sans-serif;
-  font-size: 1.8em;
-  background-color: #FFD600;
+  font-family: inherit;
+  font-size: 1.6em;
+  background: #FFD600;
   color: #D61C4E;
   border: none;
-  padding: 15px 45px;
+  padding: 15px 40px;
   border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  transition: 0.25s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 button:hover {
-  background-color: #FFEC80;
+  background: #FFEC80;
   transform: rotate(-3deg) scale(1.05);
 }
 
@@ -85,21 +109,15 @@ button:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  background-color: #fffbea;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fffbea;
   border: 4px solid #FFD600;
   border-radius: 25px;
-  z-index: 9;
+  z-index: 1001;
   padding: 25px;
   width: 80%;
   max-width: 400px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  animation: popIn 0.3s ease forwards;
-}
-
-@keyframes popIn {
-  from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  box-shadow: 0 0 30px rgba(0,0,0,0.25);
 }
 
 .form-popup h2 {
@@ -116,154 +134,69 @@ button:hover {
   border: 2px solid #FFD600;
   border-radius: 10px;
   font-size: 1em;
-  font-family: 'Happy Monkey', sans-serif;
 }
 
 .form-popup button {
-  background-color: #D61C4E;
+  background: #D61C4E;
   color: white;
-  font-size: 1.2em;
   border-radius: 15px;
-  margin-top: 10px;
   padding: 10px 25px;
-  transition: transform 0.2s ease;
-}
-
-.form-popup button:hover {
-  transform: scale(1.1);
 }
 
 .close-btn {
-  background-color: gray;
-  margin-left: 10px;
+  background: #777;
 }
 
-/* SUCCESS MESSAGE */
-.success-message {
-  color: green;
-  font-size: 1.4em;
-  margin-top: 10px;
-  display: none;
+/* STAFF PAGE */
+.page-header {
+  margin: 40px auto;
 }
 
-/* ===== HEADER / NAVIGATION (NEW GLOBAL) ===== */
-header {
-  width: 100%;
-  background: #FFD600;
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #D61C4E;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #D61C4E;
-  transition: 0.2s ease;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-  color: #0077ff;
-  transform: scale(1.1);
-}
-
-/* MOBILE MENU BUTTON */
-.menu-btn {
-  display: none;
-  cursor: pointer;
-  font-size: 2em;
-}
-
-/* === MOBILE NAVIGATION === */
-@media (max-width: 700px) {
-  .nav-links {
-    position: fixed;
-    right: -100%;
-    top: 0;
-    flex-direction: column;
-    background: #FFD600;
-    height: 100vh;
-    width: 60%;
-    padding-top: 100px;
-    transition: 0.3s ease;
-  }
-
-  .nav-links.open {
-    right: 0;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-}
-
-/* ===== STAFF PAGE CARDS ===== */
 .page-header h1 {
-  font-size: 3.5em;
+  font-size: 3em;
   color: #ff3333;
-  margin-top: 25px;
-  text-shadow: 3px 3px 0px yellow;
+  text-shadow: 2px 2px yellow;
 }
 
 .staff-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 35px;
-  padding: 40px 20px;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 50px auto;
+  width: 90%;
 }
 
 .staff-card {
   background: white;
-  width: 240px;
+  border: 4px solid #FFD600;
+  border-radius: 25px;
   padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: 0.25s ease;
-}
-
-.staff-card:hover {
-  transform: scale(1.05) rotate(-2deg);
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .staff-card img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  border: 3px solid #FFD600;
 }
 
 .staff-card h2 {
-  font-size: 1.4em;
   color: #D61C4E;
-  margin: 10px 0 5px;
+  font-size: 1.5em;
 }
 
 .staff-card p {
-  font-size: 1.2em;
   color: #0077ff;
-  margin: 0;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 
-
+/* FOOTER */
+footer {
+  padding: 20px;
+  font-size: 1.2em;
+  color: #444;
+}
