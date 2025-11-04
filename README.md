@@ -1,2 +1,2 @@
-# monkeymechanics-isk.github.com
+# monkeymechanics-isk.github.io
 Monkey Mechanics
