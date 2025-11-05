@@ -1,402 +1,180 @@
-/* ======================================================
-   Monkey Mechanics — complete site stylesheet
-   Full rewrite (fun, bold, rounded, responsive)
-   Replace your existing style.css with this file.
-   ====================================================== */
-
-/* IMPORT FONT */
 @import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
 
-/* ================= GLOBAL ================= */
+/* GLOBAL STYLE */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:root{
-  --primary:#FFD600;    /* yellow */
-  --accent:#D61C4E;     /* magenta/red */
-  --blue:#0077ff;       /* accent blue */
-  --bg:#f5fff5;         /* page background */
-  --card:#ffffff;
-  --muted:#666666;
-  --shadow: rgba(0,0,0,0.15);
-}
-
-html,body{
-  height:100%;
-}
-
 body {
-  background: var(--bg);
+  background: #fefde5;
   font-family: 'Happy Monkey', cursive;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  color: #222;
-  line-height: 1.35;
   text-align: center;
+  color: #222;
 }
 
-/* Links */
-a { color: inherit; text-decoration: none; }
-a:focus, button:focus { outline: 3px solid rgba(0,0,0,0.08); outline-offset: 3px; }
-
-/* ================= NAVBAR ================= */
+/* HEADER / NAVBAR */
 header {
-  background: var(--primary);
-  padding: 12px 28px;
+  background: #FFD600;
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 6px 20px var(--shadow);
+  z-index: 10;
 }
 
-/* branding */
 .logo {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--accent);
-  letter-spacing: 0.6px;
+  font-size: 2em;
+  color: #D61C4E;
+  font-weight: bold;
 }
 
-/* nav */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 28px;
-  align-items: center;
-  margin-left: 20px;
+  gap: 25px;
 }
 
 nav a {
   text-decoration: none;
-  font-size: 1.05rem;
-  color: var(--accent);
-  font-weight: 800;
-  transition: transform .18s ease, color .18s ease;
+  color: #D61C4E;
+  font-size: 1.3em;
+  font-weight: bold;
+  transition: 0.2s;
 }
 
 nav a:hover,
 nav a.active {
-  transform: scale(1.08) rotate(-3deg);
-  color: var(--blue);
+  color: #0077ff;
+  transform: scale(1.1) rotate(-3deg);
 }
 
-/* mobile menu button (hidden by default) */
-.menu-btn {
-  font-size: 1.8rem;
-  cursor: pointer;
-  display: none;
-  background: transparent;
-  border: none;
-  color: #333;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 .hero {
-  width: 100%;
-  height: 72vh;
-  min-height: 360px;
-  background: url("https://i.imgur.com/vIfKT0W.png") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  background: url("logo.png") center/contain no-repeat;
+  height: 60vh;
+  background-color: #fff8d6;
 }
 
-/* overlay for contrast */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.25));
-}
-
-/* hero text container */
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  padding: 20px;
-  max-width: 1100px;
-}
-
+/* MAIN */
 main h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  margin-top: 12px;
+  margin-top: 30px;
+  font-size: 3em;
   color: #ff3333;
-  text-shadow: 4px 4px 0 #ffdd33;
-  transform: rotate(-1deg);
+  text-shadow: 3px 3px yellow;
 }
 
 main p {
-  font-size: clamp(1rem, 2.2vw, 1.6rem);
-  color: var(--blue);
-  font-weight: 800;
-  margin: 18px auto;
-  max-width: 900px;
+  font-size: 1.5em;
+  color: #0077ff;
+  margin: 20px;
 }
 
-/* hero CTA */
-.btn-primary {
-  font-family: inherit;
-  font-size: 1.15rem;
-  background: var(--primary);
-  color: var(--accent);
+/* BUTTONS */
+button {
+  background: #FFD600;
   border: none;
-  padding: 12px 28px;
-  border-radius: 28px;
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .12s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  color: #D61C4E;
+  font-size: 1.2em;
+  padding: 12px 30px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
-.btn-primary:hover {
+
+button:hover {
   background: #FFEC80;
-  transform: translateY(-4px) rotate(-2deg);
+  transform: rotate(-2deg) scale(1.05);
 }
 
-/* ================= GENERAL LAYOUT HELPERS ================= */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* section headings */
-.section-title {
-  font-size: 2rem;
-  margin: 22px 0;
-  color: var(--accent);
-  text-shadow: 2px 2px rgba(255,255,0,0.35);
-}
-
-/* small utility */
-.center { text-align:center; }
-.grid { display:grid; gap:20px; }
-
-/* ================= POPUP FORM ================= */
+/* POPUP FORM */
 .form-popup {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.98);
-  background: #fffbea;
-  border: 4px solid var(--primary);
-  border-radius: 20px;
-  z-index: 2000;
-  padding: 22px;
-  width: 92%;
-  max-width: 420px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-}
-
-.form-popup.open {
-  display: block;
-  animation: pop-in .18s ease both;
-}
-@keyframes pop-in {
-  from { transform: translate(-50%,-50%) scale(.92); opacity:0; }
-  to   { transform: translate(-50%,-50%) scale(1); opacity:1; }
-}
-
-.form-popup h2 {
-  color: var(--accent);
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 4px solid #FFD600;
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
 }
 
 .form-popup input,
 .form-popup textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 2px solid var(--primary);
+  width: 90%;
+  margin: 10px 0;
+  padding: 8px;
   border-radius: 10px;
-  font-size: 1rem;
+  border: 2px solid #FFD600;
 }
 
-.form-popup button {
-  background: var(--accent);
+.close-btn {
+  background: #999;
   color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 10px 18px;
-  cursor: pointer;
-  font-weight: 800;
 }
 
-/* small close */
-.close-btn { background: #777; }
-
-/* ================= STAFF (FULL REWRITE) ================= */
-/* This replaces and expands your previous staff section styles. */
-/* Uses grid to auto-fit, founder card has image, others don't. */
-
-.staff-section {
-  padding: 50px 20px;
-  background: transparent;
-}
-
-.page-header {
-  margin: 0 auto 24px;
-  max-width: 1100px;
-}
+/* STAFF PAGE */
 .page-header h1 {
-  font-size: 2.6rem;
+  font-size: 3em;
   color: #ff3333;
   text-shadow: 2px 2px yellow;
-  margin-bottom: 6px;
+  margin: 30px 0;
 }
 
-/* Grid layout — responsive, fun spacing */
 .staff-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin: 20px auto;
-  width: 92%;
-  max-width: 1100px;
-  justify-items: center;
-  align-items: start;
-}
-
-/* Card base */
-.staff-card {
-  background: var(--card);
-  border: 4px solid var(--primary);
-  border-radius: 20px;
-  padding: 18px;
-  width: 100%;
-  max-width: 260px;
-  min-height: 120px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 40px auto;
+  width: 90%;
 }
 
-/* Make founder card slightly larger & prominent */
-.staff-card.has-img {
-  transform: translateY(0);
-  border-radius: 24px;
+.staff-card {
+  background: white;
+  border: 4px solid #FFD600;
+  border-radius: 25px;
   padding: 20px;
-  min-height: 200px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
-/* card hover */
 .staff-card:hover {
-  transform: translateY(-8px) rotate(-1.2deg);
-  box-shadow: 0 18px 36px rgba(0,0,0,0.18);
+  transform: rotate(-2deg) scale(1.05);
 }
 
-/* Founder image only (rounded style) */
-.staff-card.has-img .staff-img {
+.staff-card img {
   width: 160px;
   height: 160px;
-  border-radius: 50%;
-  border: 4px solid var(--primary);
   object-fit: cover;
-  display: block;
-  background: linear-gradient(180deg, #fff, #fff8e6);
+  border-radius: 20px;
+  border: 3px solid #FFD600;
 }
 
-/* Ensure non-founder cards do not show any image element */
-.staff-card img.staff-img {
-  display: none;
+.staff-card h2 {
+  color: #D61C4E;
+  font-size: 1.4em;
+  margin-top: 10px;
 }
 
-/* But if a card is marked has-img it will show image (override) */
-.staff-card.has-img img.staff-img {
-  display: block;
+.staff-card p {
+  color: #0077ff;
+  font-weight: bold;
 }
 
-/* name and title */
-.staff-name {
-  color: var(--accent);
-  font-size: 1.3rem;
-  font-weight: 900;
-  margin-top: 6px;
-}
-.staff-title {
-  color: var(--blue);
-  font-size: 1rem;
-  font-weight: 800;
-  opacity: 0.95;
-}
-
-/* small badge style for titles if desired */
-.staff-badge {
-  display:inline-block;
-  margin-top:6px;
-  background:var(--primary);
-  color:#000;
-  padding:6px 12px;
-  border-radius:20px;
-  font-weight:800;
-  font-size:.9rem;
-}
-
-/* for accessibility - keyboard focus */
-.staff-card:focus-within {
-  outline: 3px solid rgba(0,0,0,0.06);
-  transform: translateY(-6px);
-}
-
-/* responsive tweaks */
-@media (max-width: 680px) {
-  .staff-container { gap: 18px; width: 96%; }
-  .staff-card.has-img .staff-img { width: 140px; height: 140px; }
-  .staff-name { font-size: 1.15rem; }
-}
-
-/* ================= OTHER SITE ELEMENTS ================= */
-/* Buttons (small variations) */
-.btn-ghost {
-  background: transparent;
-  border: 3px solid var(--primary);
-  color: var(--accent);
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-weight: 800;
-}
-
-/* Small cards / sections */
-.card {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer {
-  padding: 24px 20px;
-  font-size: 1rem;
-  color: #444;
-  text-align: center;
+  background: #FFD600;
+  padding: 15px;
+  color: #D61C4E;
   margin-top: 40px;
+  font-size: 1.2em;
 }
-
-/* ================= RESPONSIVE NAV (mobile) ================= */
-@media (max-width: 880px) {
-  nav ul { display: none; }
-  .menu-btn { display: inline-block; }
-  header { padding: 12px 18px; }
-}
-
-/* ================= UTILS ================= */
-.visually-hidden {
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
-}
-
-/* ================= END OF FILE ================= */
