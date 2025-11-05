@@ -1,275 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monkey Mechanics</title>
-  <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f5fff5;
-      font-family: 'Happy Monkey', sans-serif;
-      text-align: center;
-    }
-
-    /* NAVBAR (added) */
-    header {
-      width: 100%;
-      background: #FFD600;
-      padding: 12px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      font-size: 1.6em;
-      font-weight: bold;
-      color: #D61C4E;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-      padding: 0;
-      margin: 0;
-      align-items: center;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 1.05em;
-      font-weight: 800;
-      color: #D61C4E;
-      transition: 0.15s ease;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      color: #0077ff;
-      transform: scale(1.06) rotate(-2deg);
-    }
-    .menu-btn {
-      display: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      user-select: none;
-    }
-    @media (max-width:700px) {
-      .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 0;
-        flex-direction: column;
-        background: #FFD600;
-        height: 100vh;
-        width: 60%;
-        padding-top: 100px;
-        transition: 0.3s ease;
-      }
-      .nav-links.open { right: 0; }
-      .menu-btn { display: block; }
-    }
-
-    img {
-      width: 100%;
-      height: 85vh;
-      object-fit: cover;
-      display: block;
-    }
-
-    h1 {
-      margin-top: 20px;
-      font-size: 4em;
-      color: #ff3333;
-      font-weight: bold;
-      text-shadow: 3px 3px 0px yellow;
-    }
-
-    p {
-      font-size: 2.2em;
-      color: #0077ff;
-      font-weight: bold;
-      margin: 30px;
-    }
-
-    button {
-      font-family: 'Happy Monkey', sans-serif;
-      font-size: 1.8em;
-      background-color: #FFD600;
-      color: #D61C4E;
-      border: none;
-      padding: 15px 45px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    button:hover {
-      background-color: #FFEC80;
-      transform: rotate(-3deg) scale(1.05);
-    }
-
-    .form-popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
-      background-color: #fffbea;
-      border: 4px solid #FFD600;
-      border-radius: 25px;
-      z-index: 9;
-      padding: 25px;
-      width: 80%;
-      max-width: 400px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      animation: popIn 0.3s ease forwards;
-    }
-
-    @keyframes popIn {
-      from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-      to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    }
-
-    .form-popup h2 {
-      color: #D61C4E;
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-
-    .form-popup input, .form-popup textarea {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 2px solid #FFD600;
-      border-radius: 10px;
-      font-size: 1em;
-      font-family: 'Happy Monkey', sans-serif;
-    }
-
-    .form-popup button {
-      background-color: #D61C4E;
-      color: white;
-      font-size: 1.2em;
-      border-radius: 15px;
-      margin-top: 10px;
-      padding: 10px 25px;
-      transition: transform 0.2s ease;
-    }
-
-    .form-popup button:hover {
-      transform: scale(1.1);
-    }
-
-    .close-btn {
-      background-color: gray;
-      margin-left: 10px;
-    }
-
-    /* Success message */
-    .success-message {
-      color: green;
-      font-size: 1.4em;
-      margin-top: 10px;
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- HEADER -->
   <header>
-    <div class="logo">🐒 Monkey Mechanics</div>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html" class="active">HOME</a>
-      <a href="staff.html">STAFF</a>
+    <div class="logo">🐵 Monkey Mechanics</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="staff.html">Team</a></li>
+      </ul>
     </nav>
-    <div class="menu-btn" id="menuBtn">☰</div>
   </header>
 
-  <img src="logo.png" alt="Monkey Mechanics student repair service logo">
-  <h1>Welcome to Monkey Mechanics! 🍌</h1>
-  <p>Hello Monkeys! Monkey Mechanics is an ISK student-led repair service. We fix toys, gadgets, and even do some woodworking! 
-     You can get your items repaired for free — almost. We accept payment in the form of whatever you have! 
-     Popular choices include candy, stationery, and other small items (but no food, please).</p>
+  <!-- HERO SECTION -->
+  <section class="hero"></section>
 
-  <button onclick="openForm()">🐒 Request a Repair!</button>
+  <!-- MAIN -->
+  <main>
+    <h1>Welcome to Monkey Mechanics!</h1>
+    <p>We fix everything — from bananas to servers 🍌💻</p>
+    <button onclick="openForm()">Join Our Crew</button>
+  </main>
 
-  <div class="form-popup" id="repairForm">
-    <h2>Repair Request Form</h2>
-    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="25475670-0efd-4b28-8fea-bb6e0c880aa7">
-      <input type="hidden" name="recipient" value="monkeymechanicsmain@gmail.com">
-      <input type="hidden" name="from_name" value="Monkey Mechanics Website">
-      <input type="hidden" name="subject" value="New Repair Request!">
-
-      <input type="text" name="name" placeholder="Your Name" required><br>
-      <input type="email" name="email" placeholder="Your Email" required><br>
-      <textarea name="message" rows="4" placeholder="Describe the item and issue..." required></textarea><br>
-
-      <button type="submit">Send Request 🍌</button>
-      <button type="button" class="close-btn" onclick="closeForm()">Close</button>
-    </form>
-    <div class="success-message" id="successMsg">✅ Thanks! We got your repair request!</div>
+  <!-- POPUP FORM -->
+  <div class="form-popup" id="formPopup">
+    <h2>Contact the Monkeys 🐒</h2>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Your Message"></textarea>
+    <button>Send</button>
+    <button class="close-btn" onclick="closeForm()">Close</button>
   </div>
 
-  <script>
-    // MOBILE MENU
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Monkey Mechanics. Built with 🍌 and chaos.
+  </footer>
 
-    if (menuBtn) {
-      menuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-      });
-    }
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-      });
-    });
-
-    // FORM SUBMISSION (keeps your original Web3Forms behavior)
-    const form = document.getElementById("contactForm");
-    const successMsg = document.getElementById("successMsg");
-
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData
-      });
-
-      if (response.ok) {
-        form.reset(); // clear the form
-        successMsg.style.display = "block"; // show success message
-
-        setTimeout(() => {
-          successMsg.style.display = "none";
-          closeForm(); // close popup
-        }, 2500); // hide after 2.5s
-      } else {
-        alert("Oops! Something went wrong. Please try again.");
-      }
-    });
-
-    function openForm() {
-      const formPopup = document.getElementById("repairForm");
-      formPopup.style.display = "block";
-      formPopup.style.animation = "popIn 0.3s ease forwards";
-    }
-
-    function closeForm() {
-      document.getElementById("repairForm").style.display = "none";
-    }
-  </script>
 </body>
 </html>
