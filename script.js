@@ -37,3 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// LEGAL POPUP
+const legalBtn = document.getElementById("legalBtn");
+const legalPopup = document.getElementById("legalPopup");
+const closeLegal = document.getElementById("closeLegal");
+
+legalBtn.addEventListener("click", () => {
+  legalPopup.style.display = "block";
+});
+
+closeLegal.addEventListener("click", () => {
+  legalPopup.style.display = "none";
+});
