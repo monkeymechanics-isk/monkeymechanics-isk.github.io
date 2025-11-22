@@ -1,52 +1,37 @@
-function openForm() {
-  document.getElementById("formPopup").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("formPopup").style.display = "none";
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("orderForm");
-  const popup = document.getElementById("formPopup");
-  const fallbackMessage = document.getElementById("fallbackMessage");
+  // ----------------------------
+  // ORDER FORM POPUP
+  // ----------------------------
+  const formPopup = document.getElementById("formPopup");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  window.openForm = function() {
+    formPopup.style.display = "block";
+  };
 
-    const formData = new FormData(form);
+  window.closeForm = function() {
+    formPopup.style.display = "none";
+  };
 
-    // Add your Web3Forms key
-    formData.append("access_key", "25475670-0efd-4b28-8fea-bb6e0c880aa7");
+  // ----------------------------
+  // LEGAL POPUP
+  // ----------------------------
+  const legalBtn = document.getElementById("legalBtn");
+  const legalPopup = document.getElementById("legalPopup");
+  const closeLegal = document.getElementById("closeLegal");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-      alert("Order sent successfully!");
-      popup.style.display = "none";
-      form.reset();
-    } else {
-      // If Web3Forms is full or has an error:
-      popup.style.display = "none";
-      fallbackMessage.style.display = "block";
-    }
+  legalBtn.addEventListener("click", () => {
+    legalPopup.style.display = "block";
   });
-});
 
-// LEGAL POPUP
-const legalBtn = document.getElementById("legalBtn");
-const legalPopup = document.getElementById("legalPopup");
-const closeLegal = document.getElementById("closeLegal");
+  closeLegal.addEventListener("click", () => {
+    legalPopup.style.display = "none";
+  });
 
-legalBtn.addEventListener("click", () => {
-  legalPopup.style.display = "block";
-});
-
-closeLegal.addEventListener("click", () => {
-  legalPopup.style.display = "none";
+  // ----------------------------
+  // OPTIONAL: Click outside popup to close (nice UX)
+  // ----------------------------
+  window.addEventListener("click", (e) => {
+    if (e.target === formPopup) formPopup.style.display = "none";
+    if (e.target === legalPopup) legalPopup.style.display = "none";
+  });
 });
