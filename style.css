@@ -92,10 +92,7 @@ button:hover {
 }
 
 /* POPUP FORM */
-.form-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
+.form-popup )
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
