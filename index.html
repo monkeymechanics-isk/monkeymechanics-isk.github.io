@@ -112,27 +112,30 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background:#D61C4E;
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.3);
-  z-index:10000;
+  background: #b71c1c; /* deeper, richer red */
+  padding: 30px 25px;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+  z-index: 10000;
   width: 90%;
-  max-width:400px;
+  max-width: 500px;
   text-align: center;
-  color:white;
+  color: white;
   font-family:'Happy Monkey', cursive;
 ">
-  <p class="warning-text">
+  <p class="warning-text" style="font-size: 1.1em; line-height: 1.5em; margin-bottom: 20px;">
     ⚠️ If you are spamming or abusing this form, be aware that it may result in immediate blocking, reporting, and further action taken against you by Monkey Mechanics and relevant services. See Legal for more information.
   </p>
-  <button style="
-    margin-top:15px;
-    padding:10px 20px;
+  <button id="warningBtn" style="
+    margin-top:10px;
+    padding:12px 25px;
     font-size:1.2em;
     border:none;
-    border-radius:20px;
+    border-radius: 20px;
+    background:#ff5252; /* slightly lighter red for button */
     color:white;
     cursor:pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
   ">Wait 10s...</button>
 </div>
