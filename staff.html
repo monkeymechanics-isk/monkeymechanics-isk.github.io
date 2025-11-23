@@ -84,20 +84,27 @@
   ">Legal</button>
 </footer>
 
-  <!-- LEGAL POPUP -->
-<div id="legalPopup" class="legal-popup">
+<!-- LEGAL POPUP -->
+<div id="legalPopup" class="legal-popup" style="display:none;">
   <div class="legal-box">
-    <button class="legal-close" onclick="closeLegal()">✖</button>
+    <button class="legal-close" style="
+      position:absolute;
+      top:15px;
+      right:15px;
+      background:none;
+      border:none;
+      font-size:28px;
+      cursor:pointer;
+    ">✖</button>
 
-    <h2>LEGAL NOTICE</h2>
+    <h2 style="text-align:center; font-size:2em; font-weight:bold; margin-bottom:30px;">
+      LEGAL NOTICE
+    </h2>
 
-    <p>
+    <p style="font-weight:bold; font-size:1.2em; line-height:1.6;">
       Monkey Mechanics takes spam submissions seriously.  
       Abuse of this form violates Web3Forms’ Terms of Service and may result in  
-      blocking, reporting, or civil action by Monkey Mechanics, Web3Forms, or  
-      other relevant parties.
+      blocking, reporting, or civil action by Monkey Mechanics, Web3Forms, or other relevant parties.
     </p>
   </div>
 </div>
-
-
