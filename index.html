@@ -1,1 +1,106 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Monkey Mechanics</title> <link rel="stylesheet" href="style.css"> <script defer src="script.js"></script> </head> <body> <!-- HEADER --> <header> <div class="logo">🐵 Monkey Mechanics</div> <nav> <ul> <li><a href="index.html" class="active">Home</a></li> <li><a href="staff.html">Team</a></li> </ul> </nav> </header> <!-- HERO SECTION --> <section class="hero"></section> <!-- MAIN --> <main> <h1>We do a bananas good job!</h1> <p>We fix everything — from bananas to servers 🍌💻</p> <button onclick="openForm()">Place An Order</button> </main> <!-- POPUP FORM --> <form class="form-popup" id="formPopup" action="https://api.web3forms.com/submit" method="POST"> <h2>Place Your Order 🐒</h2> <div id="fallbackMessage" style=" display:none; background:white; padding:20px; border:4px solid #FFD600; border-radius:20px; width:80%; max-width:400px; margin:20px auto; font-family:'Happy Monkey', cursive; color:#D61C4E; box-shadow:0 4px 15px rgba(0,0,0,0.2); text-align:center; "> <div style="font-size:60px;">🐒🤔</div> <h2>Dear Customers,</h2> <p> Due to technical difficulties, online orders are temporarily unavailable.<br><br> Please request in person or contact us through email: </p> <p style="font-weight:bold; color:#0077ff;">monkeymechanicsmain@gmail.com</p> </div> <!-- Web3Forms key --> <input type="hidden" name="access_key" value="25475670-0efd-4b28-8fea-bb6e0c880aa7"> <!-- User inputs --> <input type="text" name="name" placeholder="Your Name" required> <input type="email" name="email" placeholder="Email" required> <textarea name="message" placeholder="Your Order Details" required></textarea> <!-- Buttons --> <button type="submit">Send</button> <button type="button" class="close-btn" onclick="closeForm()">Close</button> </form> <footer> © 2025 Monkey Mechanics. Built with 🍌 and chaos. <!-- LEGAL BUTTON --> <button id="legalBtn" style=" margin-left:15px; padding:6px 12px; font-family: Arial, sans-serif; font-size:0.9em; font-weight:bold; border:2px solid #222; border-radius:5px; background:#FFD600; color:#222; cursor:pointer; ">Legal</button> </footer> <!-- LEGAL POPUP --> <div id="legalPopup" class="legal-popup" style="display:none;"> <div class="legal-box"> <button class="legal-close">✖</button> <h2>LEGAL NOTICE</h2> <p> Monkey Mechanics takes spam submissions seriously. Abuse of this form violates Web3Forms’ Terms of Service and may result in blocking, reporting, or civil action by Monkey Mechanics, Web3Forms, or other relevant parties. </p> </div> </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monkey Mechanics</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">🐵 Monkey Mechanics</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="staff.html">Team</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero"></section>
+
+  <!-- MAIN -->
+  <main>
+    <h1>We do a bananas good job!</h1>
+    <p>We fix everything — from bananas to servers 🍌💻</p>
+    <button onclick="openForm()">Place An Order</button>
+  </main>
+
+  <!-- POPUP FORM -->
+  <form class="form-popup" id="formPopup" action="https://api.web3forms.com/submit" method="POST">
+    <h2>Place Your Order 🐒</h2>
+
+    <div id="fallbackMessage" style="
+      display:none;
+      background:white;
+      padding:20px;
+      border:4px solid #FFD600;
+      border-radius:20px;
+      width:80%;
+      max-width:400px;
+      margin:20px auto;
+      font-family:'Happy Monkey', cursive;
+      color:#D61C4E;
+      box-shadow:0 4px 15px rgba(0,0,0,0.2);
+      text-align:center;
+    ">
+      <div style="font-size:60px;">🐒🤔</div>
+      <h2>Dear Customers,</h2>
+      <p>
+        Due to technical difficulties, online orders are temporarily unavailable.<br><br>
+        Please request in person or contact us through email:
+      </p>
+      <p style="font-weight:bold; color:#0077ff;">monkeymechanicsmain@gmail.com</p>
+    </div>
+
+    <!-- Web3Forms key -->
+    <input type="hidden" name="access_key" value="25475670-0efd-4b28-8fea-bb6e0c880aa7">
+
+    <!-- User inputs -->
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Your Order Details" required></textarea>
+
+    <!-- Buttons -->
+    <button type="submit">Send</button>
+    <button type="button" class="close-btn" onclick="closeForm()">Close</button>
+  </form>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Monkey Mechanics. Built with 🍌 and chaos.
+
+    <!-- LEGAL BUTTON -->
+    <button id="legalBtn" style="
+      margin-left:15px;
+      padding:6px 12px;
+      font-family: Arial, sans-serif;
+      font-size:0.9em;
+      font-weight:bold;
+      border:2px solid #222;
+      border-radius:5px;
+      background:#FFD600;
+      color:#222;
+      cursor:pointer;
+    ">Legal</button>
+  </footer>
+
+  <!-- LEGAL POPUP -->
+  <div id="legalPopup" class="legal-popup" style="display:none;">
+    <div class="legal-box">
+      <button class="legal-close">✖</button>
+      <h2>LEGAL NOTICE</h2>
+      <p>
+        Monkey Mechanics takes spam submissions seriously.  
+        Abuse of this form violates Web3Forms’ Terms of Service and may result in  
+        blocking, reporting, or civil action by Monkey Mechanics, Web3Forms, or other relevant parties.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
