@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----------------------------
   const formPopup = document.getElementById("formPopup");
 
-  window.openForm = function() {
+  window.openForm = () => {
     formPopup.style.display = "block";
   };
 
-  window.closeForm = function() {
+  window.closeForm = () => {
     formPopup.style.display = "none";
   };
 
@@ -17,18 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----------------------------
   const legalBtn = document.getElementById("legalBtn");
   const legalPopup = document.getElementById("legalPopup");
-  const closeLegal = document.getElementById("closeLegal");
 
   legalBtn.addEventListener("click", () => {
-    legalPopup.style.display = "block";
+    legalPopup.style.display = "flex"; // flex to center popup
   });
 
-  closeLegal.addEventListener("click", () => {
+  window.closeLegal = () => {
     legalPopup.style.display = "none";
-  });
+  };
 
   // ----------------------------
-  // OPTIONAL: Click outside popup to close (nice UX)
+  // Click outside popup to close (UX)
   // ----------------------------
   window.addEventListener("click", (e) => {
     if (e.target === formPopup) formPopup.style.display = "none";
