@@ -1,40 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ----------------------------
-  // ORDER FORM POPUP
-  // ----------------------------
+  // ORDER FORM
   const formPopup = document.getElementById("formPopup");
+  window.openForm = () => formPopup && (formPopup.style.display = "block");
+  window.closeForm = () => formPopup && (formPopup.style.display = "none");
 
-  window.openForm = () => {
-    formPopup.style.display = "block";
-  };
-
-  window.closeForm = () => {
-    formPopup.style.display = "none";
-  };
-
-  // ----------------------------
   // LEGAL POPUP
-  // ----------------------------
-  const legalBtns = document.querySelectorAll("#legalBtn"); // works for multiple pages
   const legalPopup = document.getElementById("legalPopup");
-  const legalClose = legalPopup.querySelector(".legal-close");
+  const legalClose = legalPopup ? legalPopup.querySelector(".legal-close") : null;
 
-  // Open popup when any legal button is clicked
+  // Find all legal buttons on page
+  const legalBtns = document.querySelectorAll("#legalBtn");
+
   legalBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      legalPopup.style.display = "flex"; // flex centers the popup
+      if (legalPopup) legalPopup.style.display = "flex";
     });
   });
 
-  // Close popup with X
-  legalClose.addEventListener("click", () => {
-    legalPopup.style.display = "none";
-  });
+  if (legalClose) {
+    legalClose.addEventListener("click", () => {
+      legalPopup.style.display = "none";
+    });
+  }
 
-  // ----------------------------
-  // Click outside popup to close (optional UX)
-  // ----------------------------
-  window.addEventListener("click", (e) => {
+  // Click outside to close (optional UX)
+  window.addEventListener("click", e => {
     if (e.target === formPopup) formPopup.style.display = "none";
     if (e.target === legalPopup) legalPopup.style.display = "none";
   });
