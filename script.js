@@ -17,14 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----------------------------
   const legalBtn = document.getElementById("legalBtn");
   const legalPopup = document.getElementById("legalPopup");
+  const legalClose = document.querySelector(".legal-close");
 
-  legalBtn.addEventListener("click", () => {
-    legalPopup.style.display = "flex"; // flex to center popup
-  });
+  if (legalBtn && legalPopup && legalClose) {
+    legalBtn.addEventListener("click", () => {
+      legalPopup.style.display = "flex"; // centers popup
+    });
 
-  window.closeLegal = () => {
-    legalPopup.style.display = "none";
-  };
+    legalClose.addEventListener("click", () => {
+      legalPopup.style.display = "none"; // hides popup
+    });
+  }
 
   // ----------------------------
   // Click outside popup to close (UX)
